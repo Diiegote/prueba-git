@@ -1,14 +1,8 @@
 import express from "express";
-import { json } from "express";
-import morgan from "morgan";
-import cookieParser from 'cookie-parser';
 import { router } from "./routes/index.js";
+import { setApp } from "./config/setMiddlewares.js";
 
 export const app = express();
-
-app.use(json());
-app.use(morgan("dev"));
-app.use(cookieParser());
-
+setApp(app);
 app.use(router);
 
